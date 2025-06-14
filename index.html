@@ -6,60 +6,69 @@
   <title>Yash Patel | Portfolio</title>
   <style>
     :root {
-      --primary: #005b96;
-      --bg: #f0f8ff;
-      --text: #003366;
+      --primary: #0077b6;
+      --secondary: #023e8a;
+      --accent: #48cae4;
+      --bg: #f8f9fa;
+      --text: #1b1b1b;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      scroll-behavior: smooth;
+      line-height: 1.6;
     }
 
     header {
-      background: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       color: white;
-      padding: 20px 40px;
+      padding: 20px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
-      margin: 0;
-      font-size: 24px;
+      font-size: 28px;
     }
 
     nav a {
-      color: white;
       margin-left: 20px;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     section {
-      padding: 60px 40px;
-      animation: fadeIn 1s ease-in;
+      padding: 80px 60px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease-out;
     }
 
     h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
       color: var(--primary);
-      border-bottom: 2px solid #cce0ff;
-      padding-bottom: 5px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    a {
-      color: var(--primary);
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 10px;
     }
 
     .grid {
@@ -68,15 +77,35 @@
       gap: 20px;
     }
 
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: var(--secondary);
+    }
+
     footer {
+      background-color: #e0f7fa;
       text-align: center;
       padding: 20px;
-      background-color: #e6f2ff;
-      color: var(--text);
+      margin-top: 40px;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -96,67 +125,61 @@
 </header>
 
 <section id="about">
-  <h2>About</h2>
-  <p>Hi, I'm Yash Patel — a DevOps, Cloud, and Backend Developer from IIT Roorkee. I’m passionate about building scalable backend systems, automation platforms, and cloud-native infrastructure.</p>
+  <h2>About Me</h2>
+  <p>I am Yash Patel, a passionate DevOps and Backend Engineer from IIT Roorkee. I specialize in building scalable, secure infrastructure for monolithic and containerized applications. With experience in cloud-native solutions, CI/CD pipelines, and systems programming, I aim to bridge development and operations for faster, reliable software delivery.</p>
+  <p>I’ve worked on prominent open-source projects like Prometheus Operator and KMesh (CNCF), contributed to cloud monitoring and observability tooling, and actively mentor and lead initiatives at MDGSpace IITR.</p>
 </section>
 
 <section id="skills">
   <h2>Skills</h2>
   <div class="grid">
-    <ul>
-      <li><strong>Languages:</strong> Go, Java, Python, C++, JS, TS</li>
-      <li><strong>Backend:</strong> Gin, Spring Boot, Django, Flask, Express</li>
-      <li><strong>Databases:</strong> MongoDB, PostgreSQL</li>
-    </ul>
-    <ul>
-      <li><strong>Cloud:</strong> AWS</li>
-      <li><strong>Containers:</strong> Docker, Kubernetes</li>
-      <li><strong>CI/CD:</strong> GitHub Actions, Jenkins</li>
-    </ul>
-    <ul>
-      <li><strong>IAC:</strong> Terraform, Ansible</li>
-      <li><strong>Caching:</strong> Redis, LRU</li>
-      <li><strong>Tools:</strong> Git, Linux, Prometheus, eBPF</li>
-    </ul>
+    <div class="card">
+      <h3>Languages</h3>
+      <ul><li>Go</li><li>Java</li><li>Python</li><li>C++</li><li>JavaScript</li><li>TypeScript</li></ul>
+    </div>
+    <div class="card">
+      <h3>Frameworks</h3>
+      <ul><li>Gin</li><li>Spring Boot</li><li>Django</li><li>Flask</li><li>Express</li></ul>
+    </div>
+    <div class="card">
+      <h3>Cloud & DevOps</h3>
+      <ul><li>AWS</li><li>Docker</li><li>Kubernetes</li><li>GitHub Actions</li><li>Jenkins</li><li>Terraform</li><li>Ansible</li></ul>
+    </div>
+    <div class="card">
+      <h3>Databases & Caching</h3>
+      <ul><li>PostgreSQL</li><li>MongoDB</li><li>Redis</li><li>BBolt</li></ul>
+    </div>
   </div>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
-  <h3>Wharf</h3>
-  <ul>
-    <li>Open-source Docker management tool for monolithic servers.</li>
-    <li>Manages containers, images, volumes, networks via web UI.</li>
-    <li>Uses Docker Go SDK, JWT, BBolt DB, and Gin framework.</li>
-    <li><a href="https://github.com/yp969803/wharf.git" target="_blank">GitHub Repo</a></li>
-  </ul>
-  <h3>autoCD</h3>
-  <ul>
-    <li>Web-based Continuous Delivery automation tool for monolithic deployments.</li>
-    <li>Supports GitHub webhook triggers, user & project management, and threaded script execution.</li>
-    <li><a href="https://github.com/fordevio/autoCD" target="_blank">GitHub Repo</a></li>
-  </ul>
+  <div class="card">
+    <h3>Wharf</h3>
+    <p>An open-source tool to manage Docker-based deployments on monolithic servers. Replaces SSH-based access with a web UI secured by JWT and RBAC.</p>
+    <a href="https://github.com/yp969803/wharf.git" target="_blank">View on GitHub</a>
+  </div>
+  <div class="card">
+    <h3>autoCD</h3>
+    <p>A lightweight Continuous Delivery tool with GitHub webhook triggers, script orchestration, and RBAC for managing deployments on monolithic infrastructure.</p>
+    <a href="https://github.com/fordevio/autoCD" target="_blank">View on GitHub</a>
+  </div>
 </section>
 
 <section id="experience">
   <h2>Experience</h2>
-  <h3>Google Summer of Code 2025 – Prometheus Operator</h3>
-  <ul>
-    <li>Implemented status subresources for various CRDs.</li>
-    <li>Tech: Go, Kubernetes, Prometheus</li>
-  </ul>
-
-  <h3>LFX Mentorship 2025 – CNCF KMesh Project</h3>
-  <ul>
-    <li>Exposed Prometheus metrics for TCP connections using eBPF.</li>
-    <li>Tech: Go, C, Kubernetes, Prometheus</li>
-  </ul>
-
-  <h3>Product Manager – MdgSpace IITR</h3>
-  <ul>
-    <li>Led project lifecycle & team management initiatives.</li>
-    <li>Organized dev events, implemented agile processes.</li>
-  </ul>
+  <div class="card">
+    <h3>Google Summer of Code 2025</h3>
+    <p>Contributed to Prometheus Operator by implementing status subresources for CRDs like ServiceMonitor and AlertmanagerConfig. Enhanced visibility and reconciliation tracking for users.</p>
+  </div>
+  <div class="card">
+    <h3>LFX Mentorship – CNCF KMesh</h3>
+    <p>Used eBPF to expose Prometheus metrics for TCP connections in a sidecarless mesh architecture. Improved observability and performance diagnostics.</p>
+  </div>
+  <div class="card">
+    <h3>Product Manager – MDGSpace IITR</h3>
+    <p>Led full project lifecycle for web and mobile tools at IIT Roorkee. Implemented Agile practices, managed teams, and organized workshops.</p>
+  </div>
 </section>
 
 <section id="certifications">
@@ -169,16 +192,16 @@
 <section id="contact">
   <h2>Contact</h2>
   <ul>
-    <li><strong>Email:</strong> <a href="mailto:yp969803@gmail.com">yp969803@gmail.com</a></li>
-    <li><strong>Phone:</strong> +91 8602371342</li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/yp969803" target="_blank">yp969803</a></li>
-    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-patel-997ba624b/" target="_blank">Yash Patel</a></li>
-    <li><strong>X (Twitter):</strong> <a href="https://x.com/YashPat90552223" target="_blank">@YashPat90552223</a></li>
+    <li>Email: <a href="mailto:yp969803@gmail.com">yp969803@gmail.com</a></li>
+    <li>Phone: +91 8602371342</li>
+    <li>GitHub: <a href="https://github.com/yp969803" target="_blank">yp969803</a></li>
+    <li>LinkedIn: <a href="https://linkedin.com/in/yash-patel-997ba624b" target="_blank">Yash Patel</a></li>
+    <li>Twitter: <a href="https://x.com/YashPat90552223" target="_blank">@YashPat90552223</a></li>
   </ul>
 </section>
 
 <footer>
-  <p>© 2025 Yash Patel. All rights reserved.</p>
+  <p>&copy; 2025 Yash Patel. All rights reserved.</p>
 </footer>
 
 </body>
