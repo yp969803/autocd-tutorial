@@ -1,208 +1,842 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yash Patel | Portfolio</title>
-  <style>
-    :root {
-      --primary: #0077b6;
-      --secondary: #023e8a;
-      --accent: #48cae4;
-      --bg: #f8f9fa;
-      --text: #1b1b1b;
-      --radius: 12px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Kumar Patel - DevOps | Cloud | Backend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    header {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
 
-    header h1 {
-      font-size: 28px;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    nav a {
-      margin-left: 20px;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    section {
-      padding: 80px 60px;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeIn 1s ease-out;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: var(--primary);
-      border-bottom: 3px solid var(--accent);
-      padding-bottom: 10px;
-    }
+        .nav-links a:hover {
+            color: #667eea;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-    }
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-    ul {
-      padding-left: 20px;
-    }
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
 
-    a {
-      color: var(--secondary);
-    }
+        .hero .location {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+        }
 
-    footer {
-      background-color: #e0f7fa;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+        .contact-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255,107,107,0.3);
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255,255,255,0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255,255,255,0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+
+        .project-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+            top: 1rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -62px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -62px;
+        }
+
+        /* Awards */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #333;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.9);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: calc(100% - 40px); left: 40px !important; }
+            .timeline-dot { left: -62px !important; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">YKP</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<header>
-  <h1>Yash Patel</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Yash Kumar Patel</h1>
+            <p class="subtitle">DevOps | Cloud | Backend Developer</p>
+            <p class="location">📍 Roorkee, Uttarakhand</p>
+            
+            <div class="contact-info">
+                <a href="tel:+918602371342" class="contact-item">📞 +91 8602371342</a>
+                <a href="mailto:yp969803@gmail.com" class="contact-item">✉️ yp969803@gmail.com</a>
+            </div>
+            
+            <a href="#experience" class="cta-button">Explore My Journey</a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div style="color: white; font-size: 2rem;">↓</div>
+        </div>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I am Yash Patel, a passionate DevOps and Backend Engineer from IIT Roorkee. I specialize in building scalable, secure infrastructure for monolithic and containerized applications. With experience in cloud-native solutions, CI/CD pipelines, and systems programming, I aim to bridge development and operations for faster, reliable software delivery.</p>
-  <p>I’ve worked on prominent open-source projects like Prometheus Operator and KMesh (CNCF), contributed to cloud monitoring and observability tooling, and actively mentor and lead initiatives at MDGSpace IITR.</p>
-</section>
+        <!-- Floating Particles -->
+        <div class="particle" style="top: 10%; left: 10%; width: 20px; height: 20px; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 20%; right: 10%; width: 15px; height: 15px; animation-delay: 1s;"></div>
+        <div class="particle" style="bottom: 30%; left: 20%; width: 25px; height: 25px; animation-delay: 2s;"></div>
+        <div class="particle" style="bottom: 20%; right: 20%; width: 18px; height: 18px; animation-delay: 3s;"></div>
+    </section>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Languages</h3>
-      <ul><li>Go</li><li>Java</li><li>Python</li><li>C++</li><li>JavaScript</li><li>TypeScript</li></ul>
-    </div>
-    <div class="card">
-      <h3>Frameworks</h3>
-      <ul><li>Gin</li><li>Spring Boot</li><li>Django</li><li>Flask</li><li>Express</li></ul>
-    </div>
-    <div class="card">
-      <h3>Cloud & DevOps</h3>
-      <ul><li>AWS</li><li>Docker</li><li>Kubernetes</li><li>GitHub Actions</li><li>Jenkins</li><li>Terraform</li><li>Ansible</li></ul>
-    </div>
-    <div class="card">
-      <h3>Databases & Caching</h3>
-      <ul><li>PostgreSQL</li><li>MongoDB</li><li>Redis</li><li>BBolt</li></ul>
-    </div>
-  </div>
-</section>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="card">
+                <h3>🎓 Education</h3>
+                <p><strong>Indian Institute of Technology, Roorkee</strong></p>
+                <p>B.Tech in Electrical Engineering</p>
+                <p class="date">Expected: June 2026</p>
+                <p>A passionate developer currently pursuing my degree at one of India's premier technical institutions, with a keen interest in DevOps, Cloud Computing, and Backend Development.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Wharf</h3>
-    <p>An open-source tool to manage Docker-based deployments on monolithic servers. Replaces SSH-based access with a web UI secured by JWT and RBAC.</p>
-    <a href="https://github.com/yp969803/wharf.git" target="_blank">View on GitHub</a>
-  </div>
-  <div class="card">
-    <h3>autoCD</h3>
-    <p>A lightweight Continuous Delivery tool with GitHub webhook triggers, script orchestration, and RBAC for managing deployments on monolithic infrastructure.</p>
-    <a href="https://github.com/fordevio/autoCD" target="_blank">View on GitHub</a>
-  </div>
-</section>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <h3>🏆 Google Summer of Code 2025</h3>
+                        <p class="date">May 2025 - August 2025</p>
+                        <p><strong>Prometheus Operator Project</strong></p>
+                        <ul>
+                            <li>Contributed to automating and managing Prometheus deployments on Kubernetes</li>
+                            <li>Implemented status subresource in Service Monitor, Pod Monitor, Probes, AlertmanagerConfig, PrometheusRule and ScrapeConfig Custom Resource</li>
+                            <li><strong>Impact:</strong> Enabled users to easily monitor the health and reconciliation state of their configurational resources</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-item">Go</span>
+                            <span class="tech-item">Kubernetes</span>
+                            <span class="tech-item">Prometheus</span>
+                        </div>
+                    </div>
+                </div>
 
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="card">
-    <h3>Google Summer of Code 2025</h3>
-    <p>Contributed to Prometheus Operator by implementing status subresources for CRDs like ServiceMonitor and AlertmanagerConfig. Enhanced visibility and reconciliation tracking for users.</p>
-  </div>
-  <div class="card">
-    <h3>LFX Mentorship – CNCF KMesh</h3>
-    <p>Used eBPF to expose Prometheus metrics for TCP connections in a sidecarless mesh architecture. Improved observability and performance diagnostics.</p>
-  </div>
-  <div class="card">
-    <h3>Product Manager – MDGSpace IITR</h3>
-    <p>Led full project lifecycle for web and mobile tools at IIT Roorkee. Implemented Agile practices, managed teams, and organized workshops.</p>
-  </div>
-</section>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <h3>🔧 LFX 2025 Term-1</h3>
+                        <p class="date">March 2025 - May 2025</p>
+                        <p><strong>Kmesh Project - CNCF Organization</strong></p>
+                        <ul>
+                            <li>Contributed to a sidecarless service mesh data plane</li>
+                            <li>Exposed prometheus metrics for TCP connections</li>
+                            <li>Used eBPF to collect connection specific data</li>
+                            <li><strong>Impact:</strong> Enhanced observability in KMesh</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-item">Go</span>
+                            <span class="tech-item">C</span>
+                            <span class="tech-item">Kubernetes</span>
+                            <span class="tech-item">eBPF</span>
+                            <span class="tech-item">Prometheus</span>
+                        </div>
+                    </div>
+                </div>
 
-<section id="certifications">
-  <h2>Certifications</h2>
-  <ul>
-    <li><a href="https://www.credly.com/badges/81c63160-da4f-48d3-a92e-db637f72335f/public_url" target="_blank">AWS Certified Solutions Architect – Associate (2024–2027)</a></li>
-  </ul>
-</section>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <h3>👥 Product Manager - MdgSpace IITR</h3>
+                        <p class="date">March 2023 - July 2024</p>
+                        <ul>
+                            <li>Led a group of tech enthusiasts focused on software development</li>
+                            <li>Contributed to various club projects</li>
+                            <li>Organized events and workshops related to web and mobile development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <ul>
-    <li>Email: <a href="mailto:yp969803@gmail.com">yp969803@gmail.com</a></li>
-    <li>Phone: +91 8602371342</li>
-    <li>GitHub: <a href="https://github.com/yp969803" target="_blank">yp969803</a></li>
-    <li>LinkedIn: <a href="https://linkedin.com/in/yash-patel-997ba624b" target="_blank">Yash Patel</a></li>
-    <li>Twitter: <a href="https://x.com/YashPat90552223" target="_blank">@YashPat90552223</a></li>
-  </ul>
-</section>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🚢 Wharf</h3>
+                        <p>Open-source Docker Management Tool</p>
+                    </div>
+                    <div class="project-body">
+                        <p>A comprehensive tool to manage monolithic servers with Docker-based deployments, eliminating the need to distribute SSH keys.</p>
+                        <ul>
+                            <li>Manage docker containers, images, volumes, and networks</li>
+                            <li>Provides deep insights about server infrastructure</li>
+                            <li>Implemented LRU cache for optimization</li>
+                            <li>Uses BBolt database for user data storage</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-item">Docker Go SDK</span>
+                            <span class="tech-item">Gin</span>
+                            <span class="tech-item">Docker</span>
+                            <span class="tech-item">BBolt</span>
+                        </div>
+                    </div>
+                </div>
 
-<footer>
-  <p>&copy; 2025 Yash Patel. All rights reserved.</p>
-</footer>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🔄 AutoCD</h3>
+                        <p>Continuous Delivery Pipeline Manager</p>
+                    </div>
+                    <div class="project-body">
+                        <p>An open-source tool designed to manage deployment pipelines in monolithic infrastructure with end-to-end CD workflows.</p>
+                        <ul>
+                            <li>Configurable scripts triggered via GitHub webhooks</li>
+                            <li>Auto-scaling of threads for optimal performance</li>
+                            <li>Application CD logs and user/project management</li>
+                            <li>H2 Database for data persistence</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-item">Java</span>
+                            <span class="tech-item">Spring Boot</span>
+                            <span class="tech-item">React.js</span>
+                            <span class="tech-item">GitHub Webhooks</span>
+                            <span class="tech-item">H2 Database</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>💻 Programming Languages</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>🚀 Frameworks</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Gin</span>
+                        <span class="skill-tag">Spring Boot</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>💾 Databases</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>☁️ Cloud & DevOps</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>🔧 Tools & Technologies</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">eBPF</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>📊 Monitoring</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">Jaeger</span>
+                        <span class="skill-tag">Loki</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section">
+        <div class="container">
+            <h2>🏆 Achievements & Certifications</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">🥇</div>
+                    <h4>AWS Solution Architect Associate</h4>
+                    <p>Certified July 2024 - July 2027</p>
+                    <p>Score: 761/1000 (Offline Mode)</p>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🎯</div>
+                    <h4>JEE Advanced 2022</h4>
+                    <p>All India Rank: 4522</p>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">📊</div>
+                    <h4>JEE Mains 2022</h4>
+                    <p>All India Rank: 4464</p>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🔬</div>
+                    <h4>NSEP 2022</h4>
+                    <p>State Topper</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="card" style="text-align: center;">
+                <h3>Ready to collaborate on your next project?</h3>
+                <p>I'm always open to discussing new opportunities, innovative projects, and tech collaborations.</p>
+                <div class="contact-info" style="justify-content: center; margin-top: 2rem;">
+                    <a href="mailto:yp969803@gmail.com" class="contact-item">📧 Email Me</a>
+                    <a href="tel:+918602371342" class="contact-item">📞 Call Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link">🔗</a>
+                <a href="#" class="social-link">👨‍💻</a>
+                <a href="#" class="social-link">📱</a>
+            </div>
+            <p>&copy; 2025 Yash Kumar Patel. Crafted with ❤️ and lots of ☕</p>
+            <p>Languages: English, Hindi (Native)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and timeline items
+        document.querySelectorAll('.card, .timeline-item, .project-card, .skill-category, .award-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+
+        // Add some interactive particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            particle.style.width = (Math.random() * 10 + 5) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            document.querySelector('.hero').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero .subtitle');
+        const text = subtitle.textContent;
+        subtitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                subtitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        setTimeout(typeWriter, 1000);
+    </script>
 </body>
 </html>
